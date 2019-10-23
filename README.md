@@ -18,7 +18,7 @@
 ### Association
 - has_many :groups_users
 - has_many :messages
-- has_many :users
+- has_many :users, through: :user_groups
 
 ## userテーブル
 
@@ -31,7 +31,7 @@
 ### Association
 - has_many :groups_users
 - has_many :messages
-- has_many :groups
+- has_many :groups, through: :user_groups
 
 ## messageテーブル
 
