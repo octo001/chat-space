@@ -10,6 +10,7 @@
 - belongs_to :user
 
 ## groupテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false, foreign_key: true|
@@ -19,6 +20,7 @@
 - has_many :messages
 
 ## userテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |user_name|string|null: false, foreign_key: true|
@@ -30,6 +32,7 @@
 - has_many :messages
 
 ## messageテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: true, foreign_key: true|
