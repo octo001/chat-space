@@ -1,0 +1,31 @@
+.wrapper
+    .chat-side
+        .side-header
+            .side-header__box
+                %p.side-header__box__user-name 名前
+                %ul.side-header__box__menu
+                    %li.side-header__box__menu__newgroup 
+                        = fa_icon 'edit'
+                    %li.side-header__box__menu__edit-user
+                        = fa_icon 'cog'
+        .groups
+            %p.groups__group-name 7所属しているグループ名
+            %p.groups__latest-message うまい
+    .chat-main
+        .main-header
+            .main-header__left-box
+                %h2.main-header__left-box__current-group 4現在開いているグループ名
+                %ul.main-header__left-box__member-list
+                    %li Member:
+                    %li.main-header__left-box__member-list__member 5グループに所属しているメンバー
+            .main-header__right-box
+                .main-header__right-box__edit-button Edit
+        .message 9投稿したメッセージ
+        .form 
+            .form__new-message
+                .form__new-message__input-box
+                    %input{type: "text",placeholder: "type a message",class: "form_new-message__input-box__text-input"}
+                    %label.input-box__image
+                        = fa_icon 'picture-o'
+                        %input{type: "file",class: "input-box__image__file-button"}
+                %input{type: "submit",value: "14SEND",class: "form__new-message__submit-btn"}
