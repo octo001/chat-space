@@ -27,7 +27,8 @@
         .form 
             .form__new-message
                 .form__new-message__input-box
-                    %input{type: "text",placeholder: "type a message",class: "form_new-message__input-box__text-input"}
+                    %form_for() do |f|
+                        =f.text_field :'text', placeoholder:'type a message',class:'form_new-message__input-box__text-input'
                     %label.input-box__image
                         = fa_icon 'picture-o'
                         %input{type: "file",class: "input-box__image__file-button"}
