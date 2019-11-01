@@ -23,13 +23,14 @@
                     %li.main-header__left-box__member-list__member 5グループに所属しているメンバー
             .main-header__right-box
                 .main-header__right-box__edit-button Edit
-        .message 9投稿したメッセージ
+        -# .message 9投稿したメッセージ
         .form 
             .form__new-message
                 .form__new-message__input-box
-                    -# %form_for() do |f|
-                    -#     =f.text_field :'text', placeoholder:'type a message',class:'form_new-message__input-box__text-input'
-                    %label.input-box__image
-                        = fa_icon 'picture-o'
-                        %input{type: "file",class: "input-box__image__file-button"}
-                %input{type: "submit",value: "14SEND",class: "form__new-message__submit-btn"}
+                    = form_for [@group, @message] do |f|
+                        = f.text_field :content, placeoholder:'type a message', class:'form_new-message__input-box__text-input'
+                        .form__mask
+                            = f.label :image, class: 'input-box__image' do
+                                = fa_icon 'picture-o'
+                                = f.file_field :image, class:'input-box__image__file-button'
+                        = f.submit 'Send', class: 'form__new-message__submit-btn'

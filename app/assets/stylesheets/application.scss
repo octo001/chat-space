@@ -2,12 +2,11 @@
 @import "./variables";
 @import "font-awesome";
 @import "index";
-
-@import "./user";
-@import "./group";
+@import "modules/group";
+// @import "modules/chat";
 @import "modules/flash";
-@import "./group";
-@import "modules/chat";
 @import "modules/side_bar";
+@import "modules/user";
+// @import "./group";
 
 *{box-sizing: border-box;}
