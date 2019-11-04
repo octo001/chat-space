@@ -1,4 +1,4 @@
-.side-bar
+.chat
   .header
     %h3.header__name
       = current_user.name
@@ -15,5 +15,6 @@
         = link_to group_messages_path(group) do
           .group__name
             = group.name
-          .group__message
-            メッセージはまだありません。
+          .groups__latest-message 
+            = group.show_last_message
+

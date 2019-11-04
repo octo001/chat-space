@@ -12,8 +12,10 @@
                         = link_to edit_user_path(current_user) do
                             = fa_icon 'cog'
         .groups
-            %p.groups__group-name 7所属しているグループ名
-            %p.groups__latest-message うまい
+            %p.groups__group-name 
+                = @group.name
+            %p.groups__latest-message 
+                = @group.show_last_message
     .chat-main
         .main-header
             .main-header__left-box
