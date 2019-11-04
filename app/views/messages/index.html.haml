@@ -6,12 +6,16 @@
                     = current_user.name
                 %ul.side-header__box__menu
                     %li.side-header__box__menu__newgroup 
-                        = fa_icon 'edit'
+                        = link_to new_group_path do
+                            = fa_icon 'edit'
                     %li.side-header__box__menu__edit-user
-                        = fa_icon 'cog'
+                        = link_to edit_user_path(current_user) do
+                            = fa_icon 'cog'
         .groups
-            %p.groups__group-name 7所属しているグループ名
-            %p.groups__latest-message うまい
+            %p.groups__group-name 
+                = @group.name
+            %p.groups__latest-message 
+                = @group.show_last_message
     .chat-main
         .main-header
             .main-header__left-box
@@ -21,12 +25,16 @@
                     %li.main-header__left-box__member-list__member 5グループに所属しているメンバー
             .main-header__right-box
                 .main-header__right-box__edit-button Edit
-        .message 9投稿したメッセージ
+        .messages
+            = render @messages
+        -# .message 9投稿したメッセージ
         .form 
             .form__new-message
                 .form__new-message__input-box
-                    %input{type: "text",placeholder: "type a message",class: "form_new-message__input-box__text-input"}
-                    %label.input-box__image
-                        = fa_icon 'picture-o'
-                        %input{type: "file",class: "input-box__image__file-button"}
-                %input{type: "submit",value: "14SEND",class: "form__new-message__submit-btn"}
+                    = form_for [@group, @message] do |f|
+                        = f.text_field :content, placeoholder:'type a message', class:'form_new-message__input-box__text-input'
+                        .form__mask
+                            = f.label :image, class: 'input-box__image' do
+                                = fa_icon 'picture-o'
+                                = f.file_field :image, class:'input-box__image__file-button'
+                        = f.submit 'Send', class: 'form__new-message__submit-btn'
