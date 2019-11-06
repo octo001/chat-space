@@ -22,7 +22,6 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
-    console.log($('.messages'))
   $.ajax({
     url: url,  //同期通信でいう『パス』
     type: 'POST',  //同期通信でいう『HTTPメソッド』
