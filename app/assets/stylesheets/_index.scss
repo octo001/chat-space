@@ -70,7 +70,6 @@
             height: 100px; 
             padding: 0 40px;
             border-bottom: solid 1px $white2;
-            overflow: scroll;
             &__left-box{
                 height: 100%;
                 padding-top: 35px;
@@ -81,7 +80,7 @@
                 &__member-list {
                     display: flex;
                     font-size: 12px;
-                    padding-top: 15px;
+                    padding-top: 10px;
                     color: $gray4;
                     &__member{
                         padding-left: 10px;
@@ -106,10 +105,14 @@
 
             }
         }
-        .message{
+        .messages{
+            overflow: scroll;
             background: $lightgray;
             padding: 20px 40px;
-
+            height: calc(100vh - 190px);
+            .message{
+                
+            }
         }
         .form{
             position: absolute;
