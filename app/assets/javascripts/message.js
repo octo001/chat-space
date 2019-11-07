@@ -1,5 +1,6 @@
 $(function(){
-  function buildHTML(message){
+  function buildHTML(message,image){
+    var image =  message.image? message.image : '' ;
     var html = `<div class=“message”>
                 <div class=“upper-message”>
                 <div class=“upper-message__user-name”>
@@ -8,13 +9,12 @@ $(function(){
                 <div class=“upper-message__date”>
                 ${message.date}
                 </div>
-                
                 <div class=“lower-message”>
                 <p class=“lower-message__content”>
                 ${message.content}
                 </p>
                 </div>
-                
+                ${image}
                 </div>`
     return html;
   }
@@ -22,6 +22,7 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
+    console.log(formData)
   $.ajax({
     url: url,  //同期通信でいう『パス』
     type: 'POST',  //同期通信でいう『HTTPメソッド』

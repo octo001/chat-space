@@ -1,6 +1,12 @@
 class MessagesController < ApplicationController
   before_action :set_group,only: [:index,:create]
 
+  def index
+    @message = Message.new
+    @messages = @group.messages.includes(:user)
+  end
+
+
   def create
     @message = @group.messages.new(message_params)
     if @message.save
@@ -9,18 +15,18 @@ class MessagesController < ApplicationController
         format.json
       end
     else
-      @message = @group.message.includes(:user)
+      @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力して下さい。'
       render:index
     end
   end
 
-  def index
-    @message = Message.new
-    @messages = @group.messages.includes(:user)
-  end
+
+  
 
   private
+
+
 
   def message_params
     params.require(:message).permit(:content,:image).merge(user_id: current_user.id)
