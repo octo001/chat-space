@@ -2,19 +2,20 @@ $(function(){
   function buildHTML(message,image){
     var image =  message.image? message.image : '' ;
     var html = `<div class=“message”>
-                <div class=“upper-message”>
-                <div class=“upper-message__user-name”>
-                ${message.user_name}
-                </div>
-                <div class=“upper-message__date”>
-                ${message.date}
-                </div>
-                <div class=“lower-message”>
-                <p class=“lower-message__content”>
-                ${message.content}
-                </p>
-                </div>
-                ${image}
+                  <div class=“upper-message”>
+                    <div class=“upper-message__user-name”>
+                      ${message.user_name}
+                    </div>
+                    <div class=“upper-message__date”>
+                      ${message.date}
+                    </div>
+                  </div>
+                  <div class=“lower-message”>
+                    < p class=“lower-message__content”>
+                      ${message.content}
+                    </p>
+                  </div>
+                  ${image}
                 </div>`
     return html;
   }
